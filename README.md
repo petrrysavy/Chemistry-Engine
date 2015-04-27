@@ -4,7 +4,7 @@ Models Chemical reactions with or without catalysts by utilizing randomly moving
 ##Notables:
 **/project:** where all the awesome code is
 
-**/commands:** text files for each example. A reaction can be forward `->` or reversable `<->` , and the first two numbers are the forward and backward activation energy, respectivly. Each reactant is depicted by `[Name] [Concentration] [Color]`. Writing `DEFAULT` as the color selects a random rgb. Each catalyst needs to be in its own file, and follows reactant protocol, with the addition of `[Delta Activation Energy]` at the end. 
+**/commands:** text files for each example. A reaction can be forward `->` or reversable `<->` , and the first two numbers are the forward and backward activation energy, respectivly. Each reactant is depicted by `[Number of Particles][Name] [Concentration] [Color]`. Writing `DEFAULT` as the color selects a random rgb. Each catalyst needs to be in its own file, and follows reactant protocol, with the addition of `[Delta Activation Energy]` at the end. 
 
 ##Examples:
 **Example 1:** Models the Reaction NH3 + HCL -> NH4Cl (ammonium chloride).
