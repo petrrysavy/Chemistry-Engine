@@ -23,6 +23,8 @@ Command Text: `1E-20 1E-20 1CO2 7.064E-23 BLUE 2H2O 2.892E-23 GREEN <-> 1HCO3 9.
 
 Command Text: Level 2, plus `CAH 2.734E-23 PINK 10`
 
+![Ex 3](/pictures/ex3.png)
+
 **Challenge:** The full [Krebs Cycle](http://en.wikipedia.org/wiki/Citric_acid_cycle), which produces NADH, a precursor to the very important [ATP](http://en.wikipedia.org/wiki/Adenosine_triphosphate).
 
 Command Text: `0 0 1ACETY-COA 1.34E-21 RED 1H2O 3E-23 BLUE -> 1CITRATE 3.19E-22 ORANGE
