@@ -3,9 +3,10 @@ package betterChemicalReactions;
 import java.awt.Color;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.nio.file.Paths;
 
 /**
  * 
@@ -36,7 +37,7 @@ public class ChemistryDriver {
 		HashMap<String, Double> catalysts = new HashMap<String, Double>();
 		try {
 			Scanner scan = new Scanner(new File("..\\commands\\level1.txt"));			
-			parseReaction(scan, catalysts);
+			parseReaction(scan, catalysts, container);
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}		
@@ -50,9 +51,11 @@ public class ChemistryDriver {
 		RandomGenerator generator = new BoltzmannGenerator(container, temperature);
 		HashMap<String, Double> catalysts = new HashMap<String, Double>();
 		try {
-			Scanner scan = new Scanner(new File("..\\commands\\level2.txt"));
-			parseReaction(scan, catalysts);
+			Scanner scan = new Scanner(Paths.get("..", "commands", "level2.txt"));
+			parseReaction(scan, catalysts, container);
 		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}catch (IOException e) {
 			e.printStackTrace();
 		}
 		final int numPart = 300;
@@ -68,7 +71,7 @@ public class ChemistryDriver {
 			Scanner scan = new Scanner(new File("..\\commands\\level2.txt"));
 			Scanner catScan = new Scanner(new File("..\\commands\\level2Catalyst.txt"));
 			HashMap<String, Double> catalysts = parseCatalyst(catScan);
-			parseReaction(scan, catalysts);
+			parseReaction(scan, catalysts, container);
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -84,15 +87,17 @@ public class ChemistryDriver {
 		RandomGenerator generator = new BoltzmannGenerator(container, temperature);
 		HashMap<String, Double> catalysts = new HashMap<String, Double>();
 		try {
-			Scanner scan = new Scanner(new File("..\\commands\\challenge.txt"));
-			parseReaction(scan, catalysts);
+			Scanner scan = new Scanner(Paths.get("..", "commands", "challenge.txt"));
+			parseReaction(scan, catalysts, container);
 		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
 
 	}
 	
-	public static void parseReaction(Scanner scan, HashMap<String, Double> catalysts){		
+	public static void parseReaction(Scanner scan, HashMap<String, Double> catalysts, ParticleContainer container){		
 		do{
 			HashMap<String, Integer> reactants = new HashMap<String, Integer>();
 			HashMap<String, Integer> products = new HashMap<String, Integer>();
